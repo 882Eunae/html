@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title>연습문제 2</title>
+    <style>
+			#container { 
+				width:520px;
+				border:1px solid black;
+				padding:20px 40px;
+				margin:0 auto;
+			}
+      fieldset { margin-bottom:15px; }
+      legend { font-weight:bold; }
+			ul {list-style-type: none;}
+			li { line-height:30px;}
+			label.sector {
+      display: inline-block;
+      width: 10%;
+      text-align: right;
+      margin-right: 5px;
+    }
+		label.info{
+			display: inline-block;
+      width: 10%;
+      text-align: right;
+      margin-right: 5px;
+
+		}
+
+		div.button{
+
+		width:145px;
+		padding: 20px 50px;
+		margin: 0 auto;
+		}
+
+
+
+
+    </style>
+  </head>
+  <body>
+		<div id="container">
+			<h1>프런트엔드 개발자 지원서 </h1>
+			<p>HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
+			<hr>
+			<h4>개인 정보</h4>
+			<br>
+			<label class=info for="name"></label>이름<input type="text"name="name"placeholder="공백 없이 입력하세요."><br>
+			<label class=info for="phonenumber"></label>연락처<input type="text"name="phonenumber"><br>
+			<h4>지원분야</h4>
+			<label class=sector>     </label><input type="radio">웹 퍼블리싱 <br>
+			<label class=sector></label><input type="radio">웹 애플리케이션 개발 <br>
+			<label class=sector></label><input type="radio">개발 환경 개선 
+			<br>
+			<h4>지원 동기</h4>
+			<textarea cols="60" rows="5" id=""placeholder="본사 지원 동기를 간략히 써 주세요."></textarea>
+			<br>
+			<button>접수하기</button>
+			<button>다시쓰기</button>
+
+			<hr> 
+			<!-- 여기부터 아래께 정답 위에껀 내가 한거  -->
+
+			<h1>프런트엔드 개발자 지원서 </h1>
+			<p>HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
+			<hr>
+			<h4>개인 정보</h4>
+			
+			<ul>
+				<li><label for="">이름</label><input type="text"placeholder="공백 없이 입력하세요."></li>
+				<li><label for="">연락처<input type="text"></label></li>
+			</ul>
+
+<h4>지원 분야</h4>
+			<ul>
+			<li>
+				<input type="radio"name=""id=dev>
+				<label for="">웹 퍼블리싱</label> 
+			</li>		
+			<li>
+				<input type="radio"id="dev">
+				<label for="">웹 애플리케이션 개발</label>
+
+			</li>
+<li>
+	<input type="radio"id="dev">
+	<label for="">개발환경개선</label>
+</li>
+
+
+			</ul>
+			
+			<h4>지원 동기</h4>
+			<textarea cols="60" rows="5" id=""placeholder="본사 지원 동기를 간략히 써 주세요."></textarea>
+			<br>
+			<div class="button">
+				<input type="button"type="submit"value="접수하기">
+				<input type="button"type="reset"value="다시 쓰기">
+			</div>
+
+
+<!-- 로컬에서 수정  -->
+
+			<form>
+				
+			</form>
+		</div>
+  </body>
+</html>
