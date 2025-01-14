@@ -38,5 +38,129 @@ if(result %2==0){
 
 
 //임의의 값 2개출력 
-//3의배수인지 5의배수인지 구분후 짝수이면 짝수출력,홀수이면 홀수출력
+//3의배수인지 5의배수인지 구분후, 짝수이면 짝수출력,홀수이면 홀수출력
+let num_1 = parseInt(Math.random() * 100) + 1;
+let num_2 = parseInt(Math.random() * 100) + 1;
+let result_num1_3=true;
+let result_num1_5=true;
+let result_num2_3=true;
+let result_num2_5=true;
+console.log(num_1,num_2);
+if(num_1 %3==0 && num_1%5==0){
+
+   result_num1_3=true;
+   if(num_1 %2==0){
+    console.log("3과 5의배수이면서 짝수입니다"); 
+   }
+else{
+       console.log("3과 5의배수이면서 홀수입니다");
+}
+
+
+}else{
+
+  if(num_1 %3==0){
+    if(num_1%2==0){
+      console.log("3의배수이면서 짝수입니다");
+    }else{
+      console.log("3의배수이면서 홀수입니다");
+    }
+  }
+
+  else{
+    if(num_1 %5==0){
+      if(num_1%2==0){
+        console.log("3의배수이면서 짝수입니다");
+      }else{
+        console.log("3의배수이면서 홀수입니다");
+      }
+    }
+
+    else{
+      if(num_1%2==0){
+        console.log("3의배수,5의배수 모두 아닌 짝수입니다");
+      }
+      else{
+        console.log("3의배수,5의배수 모두 아닌 홀수입니다");
+      }
+    }
+
+  }
+
+  
+}
+
+if(num_2 %3==0 && num_2%5==0){
+
+  result_num2_3=true;
+  if(num_2 %2==0){
+   console.log("3과 5의배수이면서 짝수입니다"); 
+  }
+else{
+      console.log("3과 5의배수이면서 홀수입니다");
+}
+
+
+}else{
+
+ if(num_2 %3==0){
+   if(num_2%2==0){
+     console.log("3의배수이면서 짝수입니다");
+   }else{
+     console.log("3의배수이면서 홀수입니다");
+   }
+ }
+
+ else{
+   if(num_2 %5==0){
+     if(num_2%2==0){
+       console.log("3의배수이면서 짝수입니다");
+     }else{
+       console.log("3의배수이면서 홀수입니다");
+     }
+   }
+
+   else{
+     if(num_2%2==0){
+       console.log("3의배수,5의배수 모두 아닌 짝수입니다");
+     }
+     else{
+       console.log("3의배수,5의배수 모두 아닌 홀수입니다");
+     }
+   }
+
+ }
+
+ 
+}
+
+
+
+
+
+if(num_1 %5==0){
+
+   result_num1_5=true;
+
+
+}else{
+   result_num1_5=false;
+}
+
+if(num_2 %3==0){
+
+  result_num2_3=true;
+
+}else{
+
+result_num2_3=false;
+}
+
+if(num_2 %5==0){
+result_num2_5=true;
+
+}else{
+result_num2_5=false;
+}
+console.log("num1 :  "+num_1+"num2 :  "+num_2);
 
