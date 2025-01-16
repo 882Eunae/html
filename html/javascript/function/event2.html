@@ -65,16 +65,18 @@
     //달력만드는 버튼 
 let item = document.querySelector('button'); //버튼 요소 찾기 
  //몇월달꺼 출력할건지
-let month=document.querySelector('[name="month"]').value;
+ 
+ //item.addEventListener('change',function() 일케하면 버튼으로 월 변화 가능   
 item.addEventListener('click',function(){
-
+let month=document.querySelector('[name="month"]').value;
+//이걸 addEvent 구문 밖에 내놓으니까 오류가 뜸 
 console.log(month);
 makeCalendar(month); 
 
 });
 
 
-    makeCalendar(5);
+    makeCalendar(5); 
     //달력출력함수
     function makeCalendar(month = 1) {
 
