@@ -1,5 +1,6 @@
 //1~10까지 짝수값을 구하는 반복 
 let sum = 0;
+ 
 
 document.write('<table border="1">');
 

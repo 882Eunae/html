@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  월:<input type="number" id="month"> <button>달력</button>
+  
+
+
+
+  <div id="show"></div>
+  <!-- <div id="show"></div>
+
+<table border="1"><thead>
+  <tr>
+    <th>일</th><th>월</th><th>화</th> .....<th>토</th>
+</thead>
+<tbody id="list">
+
+<tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>4</td>
+  <td>5</td>
+  <td>6</td>
+  <td>7</td>
+</tr>
+
+</tbody>
+</table> -->
+  <script>
+    //월정보 입력했을때 공백이 몇개 있는 지 반환하는 함수 
+    let item=document.querySelector('button');  
+    function getDays(month = 1) {
+      if (month == 1) {
+        return 3;
+      } else if (month == 2 || month == 3) {
+        return 6;
+      } else if (month == 4) {
+        return 2;
+      } else if (month == 5) {
+        return 4;
+      }
+    }
+
+    //월정보 알려주면 말일 반환 
+    function getLastDate(month = 1) {
+      if (month == 1 || month == 3 || month == 5) {
+        return 31;
+      } else if (month == 2) {
+        return 28;
+      } else {
+        return 30;
+      }
+    } //여기까지 함수정의 
+    
+
+    let month = 4;
+    console.log(getDays(2), getLastDate(2));
+    let spaces = getDays(month);
+    let lastDate = getLastDate(month);
+
+    // let spaces = 6; //1일의 위치(공백)
+    // let lastDate = 28; //월의 말일 
+
+item.addEventListener('click',function(){
+  let month=document.querySelector('#month').valueAsNumber;
+   spaces = getDays(month); //공백 
+   lastDate = getLastDate(month); //마지막날짜 모두 구함 
+    let days = ['일', '월', '화', '수', '목', '금', '토'];
+    let html = "";
+    
+    html += '<table border="1">';
+      html+=`<caption>${month}월</caption>`;
+    html += '<thead>';
+    // html+='<tbody id="list">';
+    html += '<tr>';
+
+    for (let i = 0; i < 7; i++) {
+      html += `<th>${days[i]}</th>` //요일 정보를 thead안에 담음 
+    }
+    html += '</tr></thead>';
+    //그대로 쓰면됨 
+
+
+    html += '<tbody id="list">';
+    html += '<tr>';
+
+    //공백이 몇칸인지 그림  
+    for (let i = 0; i < spaces; i++) {
+      html += '<td></td>';
+    } 
+    for (let i = 1; i <= lastDate; i++) {
+      if ((i + spaces) % 7 == 0) { //토요일이면 배경색 파랑
+        html += `<td style="background-color:blue; color:yellow;">${i}</td>`;
+      } else {
+
+        if ((i + spaces) % 7 == 1) {
+
+          html += `<td style="background-color:red; color:white;">${i}</td>`;
+
+
+        } else {
+          html += `<td >${i}</td>`;
+        }
+      }
+      if ((i + spaces) % 7 == 0) {
+        html += `</tr><tr>`; //tr넣어주면 줄바꿔줌   토요일이면     
+      }
+    }
+    html += '</tr></tbody>';
+    html += '</table>';
+    document.querySelector('#show').innerHTML = html;
+    // document.querySelector('#show').innerText=html; 
+  });
+  </script>
+
+
+
+
+
+</body>
+
+</html>
