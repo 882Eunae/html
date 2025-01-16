@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    월:<input type="number" id="month"> <button>달력</button>
+<div id="show"></div>
+<script>
+let item=document.querySelector('button'); //정상상
+console.log(item); 
+
+item.addEventListener('click',function(){
+    console.log('item addevent작동중...');
+//여기부터 막힘;;
+let month=document.querySelector('#month').valueAsNumber;
+console.log(monrh);
+let html = "";
+    
+html += '<table border="1">';
+    html+=`<caption>${num}단단</caption>`;
+html += '<tbody>';
+html+='<tr>';
+
+for(let i=1; i<=num; i++){
+
+console.log(`${i} x ${i} =${i*i}`);
+
+    html +=`<td>${i} x ${i} =${i*i}</td></tr><tr> `;
+}
+html += '</tbody></table>';
+document.querySelector('#show').innerHTML=html;
+
+}); //item 함수
+
+
+</script>
+
+    
+</body>
+</html>
+
