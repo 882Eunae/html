@@ -3,7 +3,6 @@
 let score1=90;
 let sum=0;
 
-
 let numAry=[10,20,30,40]; //배열생성.
 numAry[4]=50;
 numAry[5]=60;
