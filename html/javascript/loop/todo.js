@@ -1,3 +1,4 @@
+// 커밋하깅 
 let scores=[];
 let max=0;
 for(let i=0; i<5; i++){

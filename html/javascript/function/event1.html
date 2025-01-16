@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  단: <input type="number" name="dan" id="dan">
+  <button>구구단출력</button>
+<div id="show"></div>
+  <script> //스크립트 시작 
+let item=document.querySelector('button'); //html에 있는거에서 괄호안에 있는것을 찾아오는함수
+item.addEventListener('click',function(){ //click 할때 여기안에 있는 함수가 실행됨 
+// document.querySelector('#show').innerHTML="<p>7 * 1 = 7</p>";
+let n=document.querySelector('#dan').valueAsNumber; //몇단을 출력할지 숫자정보를 가져옴
+
+for(let i=1; i<=9; i++){
+console.log(`${n}x${i}=${n*i}`);
+}  
+
+let html="";
+
+for( i=1; i<=9; i++){
+  html+=`<p>${n}*${i}=${n*i}</p>`;
+//반복문에서 출력하는게 아니고 html 정보를 저장함   
+}
+// html+="</p>";
+
+document.querySelector('div#show').innerHTML=html; //뒤에 있는 변수를 HTML요소안에 넣어줌 
+// document.querySelector('div#show').innerText=html; //뒤에 있는 변수를 HTML요소안에 넣어줌 
+
+});
+
+//반복문 이용 html 그릴때 정보를 담을때만 반복문을 돌고 보여줄때는 다담은후에 화면에 출력해줌 
+
+
+
+
+  </script>
+
+</body>
+</html>
