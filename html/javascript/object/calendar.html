@@ -4,78 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>calendar.html</title>
 </head>
 
 <body>
+  년도: <input type="number"name="year" value="2025" ></input>
+
   월:<input type="number" id="month" name="month"> <button>달력</button>
 
 
 
 
   <div id="show"></div>
-  <!-- <div id="show"></div>
-
-<table border="1"><thead>
-  <tr>
-    <th>일</th><th>월</th><th>화</th> .....<th>토</th>
-</thead>
-<tbody id="list">
-<tr>
-  <td>1</td>
-  <td>2</td>
-  <td>3</td>
-  <td>4</td>
-  <td>5</td>
-  <td>6</td>
-  <td>7</td>
-</tr>
-
-</tbody>
-</table> -->
+ 
   <script>
-    //월정보 입력했을때 공백이 몇개 있는 지 반환하는 함수 
-    function getDays(month = 1) {
-      if (month == 1) {
-        return 3;
-      } else if (month == 2 || month == 3) {
-        return 6;
-      } else if (month == 4) {
-        return 2;
-      } else if (month == 5) {
-        return 4;
-      }
-    }
+    //공백
+   function getDays(year ,month){
+   
+    
+       }
 
-    //월정보 알려주면 말일 반환 
-    function getLastDate(month = 1) {
-      if (month == 1 || month == 3 || month == 5) {
-        return 31;
-      } else if (month == 2) {
-        return 28;
-      } else {
-        return 30;
-      }
-    } //여기까지 함수정의 
-    //달력만드는 버튼 
+   //월의 말일 
+
+
+
+
+
+
+
 let item = document.querySelector('button'); //버튼 요소 찾기 
  //몇월달꺼 출력할건지
  
  //item.addEventListener('change',function() 일케하면 버튼으로 월 변화 가능   
 item.addEventListener('click',function(){
 let month=document.querySelector('[name="month"]').value;
-//이걸 addEvent 구문 밖에 내놓으니까 날짜가 가로로만 정렬됨  
 console.log(month);
-makeCalendar(month); 
+let year=document.querySelector('[name="year"]').value;
+//이걸 addEvent 구문 밖에 내놓으니까 날짜가 가로로만 정렬됨  
+
+makeCalendar(year,month); 
 
 });
-
-    makeCalendar(5); 
+makeCalendar();
+   
     //달력출력함수
-    function makeCalendar(month = 1) {
+    function makeCalendar(year=2025,month = 1) {
+      let now=new Date(); //2025,1,17 
+     //년도,월 지정 
+     now.setFullYear(year);   
+     now.setMonth(month-1); 
+      now.setDate(1); 
+      let spaces = now.getDay();
 
-      let spaces = getDays(month);
-      let lastDate = getLastDate(month);
+      now.setMonth(month);
+      now.setDate(0);
+      let lastDate =now.getDate(); 
 
       // let spaces = 6; //1일의 위치(공백)
       // let lastDate = 28; //월의 말일 
@@ -85,7 +68,7 @@ makeCalendar(month);
       let html = "";
      
       html += '<table border="1">';
-      html += `<caption>${month}월</caption>`;
+      html += `<caption>${year}년${month}월</caption>`;
       html += '<thead>';
       // html+='<tbody id="list">';
       html += '<tr>';
