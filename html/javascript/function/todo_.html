@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  단:<input type="number" id="num"> <button>출력</button>
+
+  <div id="show"></div>
+  <script>
+    let item = document.querySelector('button');
+    item.addEventListener('click', function () {
+      let num = document.querySelector('#num').valueAsNumber;
+      let html = "";
+      html += '<table border="1">';
+      html += `<caption>${num}단</caption>`;
+      html += '<thead>';
+      html += '</thead>';
+      html += '<tbody id="list">';
+      html += '<tr>';
+      for (let i = 1; i <= num; i++) {
+        console.log(`${num}x${i}=${num*i}`);
+        html += `<td>${num}x${i}=${num*i}</td></tr><tr>`;
+      }
+        //for문 끝 
+      html += '</tr></tbody>';
+      html += '</table>';
+      document.querySelector('#show').innerHTML = html;
+      // document.querySelector('#show').innerText=html; 
+    });
+  </script>
+</body>
+
+</html>
