@@ -9,28 +9,12 @@
 
 <body>
   년도: <input type="number"name="year" value="2025" ></input>
-
   월:<input type="number" id="month" name="month"> <button>달력</button>
-
-
-
-
   <div id="show"></div>
  
-  <script>
-    //공백
-   function getDays(year ,month){
+  <script> //공백
    
-    
-       }
-
-   //월의 말일 
-
-
-
-
-
-
+  
 
 let item = document.querySelector('button'); //버튼 요소 찾기 
  //몇월달꺼 출력할건지
@@ -49,12 +33,12 @@ makeCalendar();
    
     //달력출력함수
     function makeCalendar(year=2025,month = 1) {
-      let now=new Date(); //2025,1,17 
+    let now=new Date(); //2025,1,17 
      //년도,월 지정 
-     now.setFullYear(year);   
-     now.setMonth(month-1); 
-      now.setDate(1); 
-      let spaces = now.getDay();
+    now.setFullYear(year);   
+    now.setMonth(month-1); 
+    now.setDate(1); 
+    let spaces = now.getDay();
 
       now.setMonth(month);
       now.setDate(0);
