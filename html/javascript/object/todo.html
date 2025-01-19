@@ -11,13 +11,17 @@
 
 <body>
   이름 <input type="text" name="friend">
-  점수 <input type="number" name="score"value=>
+  점수 <input type="number" name="score" value=>
   <button>친구추가</button>
   <button name="remove">친구삭제</button>
+
+  
+  <div id="div"></div>
   <table border="1">
     <thead>
       <tr>
-        <th>이름</th><th>점수</th>
+        <th>이름</th>
+        <th>점수</th>
       </tr>
     </thead>
     <tbody id="list">
@@ -25,21 +29,44 @@
     </tbody>
   </table>
 
-  <script>
 
-let friendAry = [{name: '정명한',  score: 80},
-      { name: '김지수',score: 70},
-      {name: '고영서', score: 70},
-      {name: '이민영', score: 85 },
-      {name: '정은애', score: 90 }];
-    
+
+
+  <button name="list">정렬</button>
+
+  <script>
+    let friendAry = [{
+        name: '정명한',
+        score: 20
+      },
+      {
+        name: '김지수',
+        score: 70
+      },
+      {
+        name: '고영서',
+        score: 10
+      },
+      {
+        name: '이민영',
+        score: 85
+      },
+      {
+        name: '정은애',
+        score: 90
+      }
+    ];
+
 
 
     //친구추가 이벤트 등록 
     document.querySelector('button').addEventListener('click', function () {
       let name = document.querySelector('input[name="friend"]').value;
       let score = document.querySelector('input[name="score"]').value;
-      friendAry.push({name:name,score:score}); //배열추가 
+      friendAry.push({
+        name: name,
+        score: score
+      }); //배열추가 
       makeList();
       //초기화
       document.querySelector('input[name="friend"]').value = "";
@@ -55,18 +82,48 @@ let friendAry = [{name: '정명한',  score: 80},
       // } else if (pos != -1) {
       //   friendAry.splice(pos, 1);
       // }
-      friendAry=friendAry.filter(function(item,idx,ary){
+      friendAry = friendAry.filter(function (item, idx, ary) {
         //이름이 같으면 false, 이름이 다르면 true 
         // if(item.name==searchName){
         //   return false;
         // }
         // return true;
-        return item.name!=searchName;
+        return item.name != searchName;
 
       });
       console.log(friendAry);
       makeList();
     });
+    //정렬
+    document.querySelector('button[name="list"]').addEventListener('click', function () {
+
+    
+      console.log(friendAry);
+      let scoreItem = document.querySelector('#div');
+      let scoreHtml=" ";
+      scoreHtml += '<table border="1"><thead><tr><th>이름</th><th>점수</th></tr></thead><tbody id="list">'
+      friendAry.forEach(function (item, idx, ary) {
+        scoreHtml += `<tr><td>${item.name}</td><td>${item.score}</td></tr>`;
+      });
+
+      scoreHtml += '</tbody></table><hr><table border="2"><thead><tr><th>이름</th><th>점수</th></tr></thead><tbody>'
+
+        let scoreAry = friendAry.sort(function (a, b) {
+        return b.score - a.score;
+      }); //점수순으로 하는건 완료 
+
+
+console.log(scoreAry);
+
+      scoreAry.forEach(function (item, idx, ary) {
+        scoreHtml += `<tr><td>${item.name}</td><td>${item.score}</td></tr>`;
+      });
+
+      scoreHtml += '</tbody></table>'
+
+      scoreItem.innerHTML = scoreHtml;
+    });
+
 
     let targetItem = document.querySelector('#list'); //tbody요소 
 
@@ -75,9 +132,9 @@ let friendAry = [{name: '정명한',  score: 80},
       friendAry.forEach(function (item, idx, ary) {
         html += `<tr><td>${item.name}</td><td>${item.score}</td></tr>`;
       });
+      html+='<button name="list">정렬<button>';
       targetItem.innerHTML = html;
     }
-    // makeList();
   </script>
 
 
