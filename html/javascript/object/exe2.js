@@ -19,3 +19,4 @@ let filAry=numAry.filter(function(item,idx,ary){
   return false;
 });
 console.log(filAry);
+

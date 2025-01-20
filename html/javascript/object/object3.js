@@ -25,4 +25,6 @@ let filterAry=numAry.filter(function(item,idx,ary){
     return false;
   }
 }); 
+
+// 커ㅣㅅ....
 console.log(filterAry);

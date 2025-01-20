@@ -11,11 +11,8 @@
   년도: <input type="number"name="year" value="2025" ></input>
   월:<input type="number" id="month" name="month"> <button>달력</button>
   <div id="show"></div>
- 
   <script> //공백
-   
   
-
 let item = document.querySelector('button'); //버튼 요소 찾기 
  //몇월달꺼 출력할건지
  
@@ -25,7 +22,6 @@ let month=document.querySelector('[name="month"]').value;
 console.log(month);
 let year=document.querySelector('[name="year"]').value;
 //이걸 addEvent 구문 밖에 내놓으니까 날짜가 가로로만 정렬됨  
-
 makeCalendar(year,month); 
 
 });
@@ -33,12 +29,21 @@ makeCalendar();
    
     //달력출력함수
     function makeCalendar(year=2025,month = 1) {
+
     let now=new Date(); //2025,1,17 
      //년도,월 지정 
     now.setFullYear(year);   
     now.setMonth(month-1); 
     now.setDate(1); 
     let spaces = now.getDay();
+
+      
+     //년도,월 지정 
+     now.setFullYear(year);   
+     now.setMonth(month-1); 
+      now.setDate(1); 
+     spaces = now.getDay();  // 공백이 어느정돈지  
+   
 
       now.setMonth(month);
       now.setDate(0);
@@ -50,6 +55,32 @@ makeCalendar();
 
       let days = ['일', '월', '화', '수', '목', '금', '토'];
       let html = "";
+
+      let holydays = [{
+        month: 1,
+        days: [1,2,3]
+      },
+      {
+        month: 2,
+        days: [2,15,20]
+      },
+      {
+        month: 3,
+        days: [2,15,20]
+      }
+    ];
+
+      let holyAry=holydays.filter(function (item,idx,ary){
+        if (item.month==month){
+          return true;
+        }
+        return false;
+
+      });
+      
+     
+    
+
      
       html += '<table border="1">';
       html += `<caption>${year}년${month}월</caption>`;
@@ -69,7 +100,11 @@ makeCalendar();
         html += '<td></td>';
       }
       for (let i = 1; i <= lastDate; i++) {
-        if ((i + spaces) % 7 == 0) { //토요일이면 배경색 파랑
+        if(holyAry.length >0 && holyAry[0].days.indexOf(i) !=-1){
+          html+=`<td style="background-color:pink; color:white;">${i}</td>`;
+        }
+
+        else if ((i + spaces) % 7 == 0) { //토요일이면 배경색 파랑
           html += `<td style="background-color:blue; color:yellow;">${i}</td>`;
         } else {
 
@@ -83,10 +118,13 @@ makeCalendar();
           html += `</tr><tr>`; //tr넣어주면 줄바꿔줌   토요일이면     
         }
       }
+        
+      
       html += '</tr></tbody>';
       html += '</table>';
       document.querySelector('#show').innerHTML = html;
-    } //end of makeCalendar()
+    }
+     //end of makeCalendar()
     // document.querySelector('#show').innerText=html; 
   </script>
 </body>
