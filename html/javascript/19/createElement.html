@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- createElement.html -->
+  친구이름:<input type="text" name="friendName">
+  <button>친구추가</button>
+
+  <ul id="friendList">
+    <li>홍길동<button>삭제</button></li>
+  </ul>
+  <script>
+    //친구추가 버튼클릭 입력값을 li로 추가 
+    document.querySelector('button').addEventListener('click', function () {
+
+      let userValue = document.querySelector('input').value
+
+      if (!userValue) {
+        alert('이름을 입력하세요')
+      }
+      let li = document.createElement('li');
+      let btn=document.createElement('button');
+      btn.addEventListener('click', function () {
+        let result = confirm('선택한 요소를 삭제하겠습니까?');
+        if (result) {
+
+          li.remove();
+        } else {
+          alert('삭제를 취소했습니다');
+        }
+      });
+      li.innerHTML = userValue;
+
+     
+      
+      btn.innerHTML='삭제';
+      li.appendChild(btn);
+
+      let txt = document.createTextNode(userValue);
+      // li.appendChild(txt);
+      document.querySelector('ul').appendChild(li);
+
+
+    });
+  </script>
+
+
+</body>
+
+</html>
